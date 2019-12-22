@@ -17,3 +17,16 @@ can be predicted if you pay close attention to how the colors are being cycled t
 ## Compilation
 
 `g++ src/* -I include/ -I /usr/local/lib/ -O3 -o voronoi -lsfml-system -lsfml-graphics -lsfml-window`
+
+## Images
+
+#### Voronoi diagram using Euclidean distance
+![Voronoi diagram using Euclidean distance](./images/voronoi.png)
+
+
+#### Voronoi diagram using Manhattan distance
+![Voronoi diagram using Manhattan distance](./images/voronoi_manhattan.png)
+
+
+#### Voronoi diagram with seed rendering enabled
+![Voronoi diagram with seeds](./images/voronoi_pivots.png)
