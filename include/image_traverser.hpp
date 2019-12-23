@@ -29,6 +29,8 @@ struct Hash {
 
 class ImageTraverser {
 
+    static bool showBorders;
+
     std::unordered_set<sf::Vector2i, Hash> visited;
     std::unordered_set<sf::Vector2i, Hash> toVisit;
 
@@ -52,6 +54,7 @@ public:
     ImageTraverser(sf::Image & img, const std::vector<Pivot> & pivots);
 
     void recalc(uint64_t fromX, uint64_t fromY);
+    static void enableBorderRendering();
 
 };
 

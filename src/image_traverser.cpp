@@ -4,6 +4,8 @@
 
 #include <image_traverser.hpp>
 
+bool ImageTraverser::showBorders = false;
+
 ImageTraverser::ImageTraverser(sf::Image & img, const std::vector<Pivot> & pivots)
         : img(img), pivots(pivots), width(img.getSize().x), height(img.getSize().y), mainPivot(pivots.back()) { }
 
@@ -50,6 +52,9 @@ void ImageTraverser::visit(const sf::Vector2i & pixel) {
 
     const Pivot & closest = findClosestPivot(pixel);
     if (closest != mainPivot) {
+        if (showBorders) {
+            img.setPixel(pixel.x, pixel.y, sf::Color::Black);
+        }
         return;
     }
     getNeighbours(pixel);
@@ -82,6 +87,10 @@ bool ImageTraverser::inBounds(const sf::Vector2i & pixel) {
 
 bool ImageTraverser::isVisited(const sf::Vector2i & pixel) {
     return visited.count(pixel);
+}
+
+void ImageTraverser::enableBorderRendering() {
+    showBorders = true;
 }
 
 
